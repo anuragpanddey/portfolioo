@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { useAsset } from "../context/assetsContextStore";
 import "./Navbar.css";
 
 const LEFT_LINKS = [
@@ -21,6 +22,7 @@ export default function Navbar({
   ctaLabel = "Hire Me",
   ctaHref  = "#contact",
 }) {
+  const logoIcon = useAsset("logo_icon", "");
   const [scrolled,       setScrolled] = useState(false);
   const [menuOpen,       setMenuOpen] = useState(false);
   const [activeSection,  setActive]   = useState("home");
@@ -142,7 +144,9 @@ export default function Navbar({
 
         {/* CENTER LOGO */}
         <div className="navbar-logo">
-          <a href="#home" onClick={(e) => scrollTo("#home", e)}>{logo}</a>
+          <a href="#home" onClick={(e) => scrollTo("#home", e)}>
+            {logoIcon ? <img src={logoIcon} alt={logo} className="navbar-logo-icon" /> : logo}
+          </a>
         </div>
 
         {/* RIGHT */}

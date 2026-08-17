@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { heroData } from "../data";
+import { useAsset } from "../context/assetsContextStore";
 import { FaArtstation, FaInstagram, FaLinkedin, FaXTwitter, FaBehance, FaEnvelope } from "react-icons/fa6";
 import { FaBloggerB } from "react-icons/fa6";
 import "./Hero.css";
@@ -16,7 +17,9 @@ const socialIconMap = {
 
 export default function Hero() {
   const [videoError, setVideoError] = useState(false);
-  const { backgroundVideo, fallbackImage, greeting, name, title, socialLinks, bio } = heroData;
+  const { greeting, name, title, socialLinks, bio } = heroData;
+  const backgroundVideo = useAsset("hero_video", heroData.backgroundVideo);
+  const fallbackImage = useAsset("hero_fallback", heroData.fallbackImage);
 
   return (
     <section id="home" className="hero">

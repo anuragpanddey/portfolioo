@@ -8,7 +8,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import Masonry from "react-masonry-css";
-import { galleryData, galleryFilters } from "../data";
+import { galleryData as localGalleryData, galleryFilters } from "../data";
+import { useAssets } from "../context/assetsContextStore";
 import AnimatedSection from "./AnimatedSection";
 import { GridPattern } from "./Illustrations";
 import "./Gallery.css";
@@ -235,6 +236,9 @@ export default function Gallery() {
   const [lightboxOpen, setLightboxOpen]   = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
+  const { galleryItems } = useAssets();
+  const galleryData = galleryItems.length > 0 ? galleryItems : localGalleryData;
+
   const filteredItems =
     activeFilter === "all"
       ? galleryData
@@ -296,7 +300,12 @@ export default function Gallery() {
                     preload="metadata"
                   />
                 ) : (
-                  <img src={slide.src} alt={item.title} className="gallery-img" />
+                  <img
+                    src={slide.src}
+                    alt={item.title}
+                    className="gallery-img"
+                    onError={(e) => { e.currentTarget.closest(".gallery-item")?.style.setProperty("display", "none"); }}
+                  />
                 )}
               </button>
 

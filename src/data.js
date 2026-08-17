@@ -274,7 +274,7 @@ export const galleryData = [];
 // Gallery data cleared - assets folder no longer exists
 
 // Gallery filter tabs (first = "ALL" shows everything)
-export const galleryFilters = ["all", "photography", "nature", "3d", "graphics", "advertisement", "photoshoot","movie", "movie rendenering", "unreal engine"];
+export const galleryFilters = ["all", "photography", "3d", "graphics", "advertisement", "photoshoot", "movie", "movie rendenering", "cinematic", "videos", "unreal engine"];
 
 // ============================================================================
 // BLOG - From fourth image reference

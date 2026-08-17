@@ -76,6 +76,12 @@
   border-color: rgba(255, 255, 255, 0.38);
 }
 
+.navbar-logo-icon {
+  display: block;
+  height: 1.4rem;
+  width: auto;
+}
+
 /* ── Right links + CTA ──────────────────────────────────────────── */
 .navbar-right {
   display: flex;

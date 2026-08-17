@@ -7,12 +7,14 @@
  * - Background: p14.jpeg (center/cover, no-repeat)
  */
 import { aboutData } from "../data";
+import { useAsset } from "../context/assetsContextStore";
 import AnimatedSection from "./AnimatedSection";
 import { AboutDecoration } from "./Illustrations";
 import "./About.css";
 
 export default function About() {
-  const { image, heading, text, stats } = aboutData;
+  const { heading, text, stats } = aboutData;
+  const image = useAsset("about_image", aboutData.image);
 
   return (
     <section id="about" className="about">
@@ -23,7 +25,14 @@ export default function About() {
           <div className="about-left">
             <div className="about-image-wrap">
               <div className="about-image-anim">
-                <img src={image} alt={heading} className="about-image" />
+                {image && (
+                  <img
+                    src={image}
+                    alt={heading}
+                    className="about-image"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                )}
                 <AboutDecoration />
               </div>
             </div>

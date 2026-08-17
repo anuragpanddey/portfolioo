@@ -5,6 +5,7 @@
  */
 import { useEffect, useState } from "react";
 import { siteConfig } from "./data";
+import { AssetsProvider } from "./context/AssetsContext";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -41,7 +42,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <AssetsProvider>
       <div className={`ap-loader ${isLoading ? "is-active" : "is-hidden"}`}>
         <div className="ap-loader__shield">
           <div className="ap-loader__logo">AP</div>
@@ -64,7 +65,7 @@ function App() {
           <Contact />
         </main>
       </div>
-    </>
+    </AssetsProvider>
   );
 }
 
