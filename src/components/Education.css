@@ -1,0 +1,50 @@
+.education {
+  padding: 5rem 2rem;
+  background: #121212;
+  position: relative;
+}
+
+.education-timeline {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.edu-item {
+  padding: 1.5rem 0;
+  padding-left: 2rem;
+  border-bottom: 1px solid #333;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+
+.edu-item:hover {
+  transform: translateX(8px);
+}
+
+.edu-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.75rem;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.edu-year {
+  font-size: 0.8rem;
+  color: var(--accent-strong);
+}
+
+.edu-degree {
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0.25rem 0;
+}
+
+.edu-school {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+}

@@ -1,0 +1,99 @@
+/* Services - 3-col card grid */
+.services {
+  padding: 5rem 2rem;
+  background: #121212;
+  position: relative;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-header {
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.services-desc {
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.5rem;
+}
+
+.service-card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: relative;
+  display: block;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: scale(1);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  outline: none;
+}
+
+.service-card:hover,
+.service-card:focus-visible {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.service-card:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+.service-image-wrap {
+  height: 160px;
+  background: #252525;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.28s ease, filter 0.28s ease;
+  filter: saturate(0.9) contrast(1.05);
+}
+
+.service-card:hover .service-image,
+.service-card:focus-visible .service-image {
+  transform: scale(1.05);
+  filter: saturate(1.1) contrast(1.1);
+}
+
+.service-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.service-desc {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+
+.service-arrow {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: var(--accent);
+  font-size: 1.25rem;
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.service-card:hover .service-arrow,
+.service-card:focus-visible .service-arrow {
+  transform: translateX(4px);
+  color: #ffffff;
+}

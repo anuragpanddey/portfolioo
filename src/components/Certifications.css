@@ -1,0 +1,139 @@
+.certifications {
+  padding: 5rem 2rem;
+  background: #0a0a0a;
+}
+
+/* ══════════════════════════════
+   Certifications — card grid
+   ══════════════════════════════ */
+.cert-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+}
+
+@media (max-width: 900px) {
+  .cert-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .cert-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cert-card {
+  padding: 1.75rem;
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--accent, #b8bec7);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.cert-card-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cert-year {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.cert-title {
+  font-size: 1.05rem;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0.2rem 0 0;
+}
+
+.cert-issuer {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0.15rem 0 0;
+}
+
+/* ══════════════════════════════
+   Achievements — list
+   ══════════════════════════════ */
+.achieve-wrapper {
+  max-width: 1100px;
+  margin: 3.5rem auto 0;
+}
+
+.cert-col-heading {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.achieve-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achieve-list-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.achieve-list-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.achieve-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.achieve-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.achieve-title {
+  font-size: 0.97rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.achieve-year {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.achieve-description {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.65;
+  margin: 0;
+  padding-right: 0.5rem;
+}

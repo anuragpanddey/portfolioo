@@ -1,0 +1,108 @@
+/* Software section matching dark boxed reference style */
+.software {
+  padding: 5rem 2rem 4.5rem;
+  background: #000;
+}
+
+.software-heading {
+  margin-bottom: 1.9rem;
+  letter-spacing: 0.28rem;
+  text-align: left;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.software-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.35rem;
+}
+
+.software-card {
+  background: #030303;
+  border: 1px solid #171717;
+  min-height: 158px;
+  padding: 1.25rem 1.15rem 0.95rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.software-card:hover {
+  transform: translateY(-4px);
+  border-color: #2a2a2a;
+}
+
+.software-card-icon-box {
+  width: 42px;
+  height: 42px;
+  background: #131313;
+  border: 1px solid #1f1f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.software-card-icon-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.software-card-icon-fallback {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e5e5e5;
+}
+
+.software-card-title {
+  margin: 0 0 0.7rem;
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+.software-progress {
+  width: 100%;
+  height: 3px;
+  background: #2b2b2b;
+  position: relative;
+  margin-bottom: 0.45rem;
+}
+
+.software-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.software-card-level {
+  margin: 0;
+  color: #8f8f8f;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  .software {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .software-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .software-card {
+    min-height: 150px;
+    padding: 1rem 0.9rem 0.8rem;
+  }
+
+  .software-card-title {
+    font-size: 1.08rem;
+  }
+}

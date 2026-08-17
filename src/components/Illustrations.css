@@ -1,0 +1,179 @@
+/* Hero - Floating gradient orbs */
+.illus-hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: orb-float 15s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent);
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #aeb5bf;
+  bottom: 20%;
+  left: 5%;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 200px;
+  height: 200px;
+  background: #d7dbe2;
+  top: 50%;
+  left: 50%;
+  animation-delay: -10s;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+/* About - Decorative rings and dots */
+.illus-about {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.illus-about-ring {
+  width: 340px;
+  height: 340px;
+  color: var(--accent);
+  animation: ring-pulse 4s ease-in-out infinite;
+}
+
+.illus-about-dots {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+}
+
+.illus-about-dots .dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  opacity: 0.6;
+  top: 50%;
+  left: 50%;
+  animation: dot-orbit 8s linear infinite;
+  --angle: calc(var(--i) * 45deg);
+  transform: rotate(var(--angle)) translateX(140px) rotate(calc(-1 * var(--angle)));
+}
+
+@keyframes ring-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.02); }
+}
+
+@keyframes dot-orbit {
+  to { transform: rotate(calc(360deg + var(--angle))) translateX(140px) rotate(calc(-360deg - var(--angle))); }
+}
+
+/* Section divider */
+.illus-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  opacity: 0.6;
+}
+
+.illus-divider .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184, 190, 199, 0.5), transparent);
+}
+
+.illus-divider .accent {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: accent-pulse 2s ease-in-out infinite;
+}
+
+@keyframes accent-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+/* Floating geometric shapes */
+.illus-floating {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.illus-floating .shape {
+  position: absolute;
+  border: 1px solid rgba(184, 190, 199, 0.2);
+  animation: shape-float 20s ease-in-out infinite;
+}
+
+.shape-1 { width: 60px; height: 60px; top: 15%; left: 10%; animation-delay: 0s; }
+.shape-2 { width: 40px; height: 40px; top: 25%; right: 15%; animation-delay: -4s; border-radius: 50%; }
+.shape-3 { width: 80px; height: 2px; bottom: 30%; left: 20%; animation-delay: -8s; }
+.shape-4 { width: 30px; height: 30px; bottom: 20%; right: 25%; animation-delay: -12s; transform: rotate(45deg); }
+.shape-5 { width: 50px; height: 50px; top: 60%; right: 10%; animation-delay: -16s; border-radius: 8px; }
+
+@keyframes shape-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { transform: translateY(-20px) rotate(10deg); opacity: 0.8; }
+}
+
+.illus-floating .shape-2 { transform: none; }
+.illus-floating .shape-2 { transform: rotate(0deg); }
+.illus-floating .shape-4 { transform: rotate(45deg); }
+
+/* Grid pattern background */
+.illus-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Corner accent */
+.illus-corner {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+}
+
+.illus-corner-top-left { top: 0; left: 0; }
+.illus-corner-top-right { top: 0; right: 0; transform: scaleX(-1); }
+.illus-corner-bottom-left { bottom: 0; left: 0; transform: scaleY(-1); }
+.illus-corner-bottom-right { bottom: 0; right: 0; transform: scale(-1); }
+
+.illus-corner svg {
+  width: 100%;
+  height: 100%;
+}
