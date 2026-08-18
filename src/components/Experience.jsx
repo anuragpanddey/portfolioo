@@ -7,6 +7,7 @@ import { experienceData } from "../data";
 import { useAsset } from "../context/assetsContextStore";
 import AnimatedSection from "./AnimatedSection";
 import { SectionDivider, CornerAccent } from "./Illustrations";
+import TextType from "./TextType";
 import "./Experience.css";
 
 export default function Experience() {
@@ -33,7 +34,7 @@ export default function Experience() {
       <CornerAccent position="bottom-left" />
       <div className="experience-content">
         <AnimatedSection variant="fadeUp">
-          <h2 className="section-heading">Work Experience</h2>
+          <TextType as="h2" className="section-heading" text="Work Experience" startOnVisible loop={false} />
           <SectionDivider />
         </AnimatedSection>
         <div className="experience-timeline">

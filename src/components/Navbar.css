@@ -17,20 +17,21 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
-  animation: navbar-slide-down 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.8s;
-  opacity: 0;
-}
-
-@keyframes navbar-slide-down {
-  from { opacity: 0; transform: translateY(-100%); }
-  to   { opacity: 1; transform: translateY(0); }
+  opacity: 1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .navbar.scrolled {
   background: rgba(8, 8, 8, 0.7);
   border-color: rgba(255, 255, 255, 0.07);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Visible only on the Home/Hero section — hidden everywhere else. */
+.navbar.navbar-hidden {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
 }
 
 /* ── Inner grid ─────────────────────────────────────────────────── */

@@ -60,7 +60,7 @@ export const aboutData = {
 
   image: "",
   heading: "About Me",
-  text: "I’m a passionate and creative multidisciplinary designer and visual artist. With a strong blend of technical knowledge and visual storytelling, I specialize in UI/UX design, 3D modelling, VFX, graphic design, motion graphics, and environment design. I have hands-on experience with industry-standard tools including Photoshop, Illustrator, Premiere Pro, After Effects, Blender, Figma, Unreal Engine, DaVinci Resolve, Unity, and Nuke, allowing me to bring ideas to life from concept to final production. I have been recognized as a Gold Medalist and First Runner-Up in the Reliance Animagination Challenge for my creativity and execution in short film, VFX and design. My work spans photography, videography, cinematic production, game and environment design, rendering, and advertising visuals, where I focus on creating impactful, engaging, and story-driven experiences. I believe great design is a combination of creativity, emotion, and functionality, and I continuously strive to push boundaries, learn new skills, and contribute to innovative projects that merge technology with art.",
+  text: "Hey, I’m a multidisciplinary designer and visual artist who loves turning ideas into visuals that feel alive. From UI/UX and 3D to VFX, motion, photography, and cinematic storytelling, I blend creativity with technology to bring concepts from imagination to final frame. I’m a Gold Medalist and First Runner-Up in the Reliance Animagination Challenge, recognized for my work in short film, VFX, and design.\n\nWhether I’m designing an interface, building a 3D world, capturing a story, or creating an advertisement, I’m always exploring, experimenting, and looking for new ways to turn “what if?” into “wow!”",
    stats: [
     { value: "18+", label: "Real Projects Completed" },
     { value: "1+", label: "Years Experience" },
@@ -267,14 +267,14 @@ export const experienceData = [
 ];
 
 // ============================================================================
-// GALLERY - Masonry grid (filterable by category)
+// GALLERY - Drift wall (filterable by category)
 // Categories must match: photography, videography, 3d, vfx, ui, graphics, game, etc.
 // ============================================================================
 export const galleryData = [];
 // Gallery data cleared - assets folder no longer exists
 
 // Gallery filter tabs (first = "ALL" shows everything)
-export const galleryFilters = ["all", "photography", "3d", "graphics", "advertisement", "photoshoot", "movie", "movie rendenering", "cinematic", "videos", "unreal engine"];
+export const galleryFilters = ["all", "photography", "3d", "graphics", "advertisement", "photoshoot", "rendering", "cinematic", "videos"];
 
 // ============================================================================
 // BLOG - From fourth image reference
@@ -341,30 +341,27 @@ export const blogData = [
 // CONTACT & FOOTER
 // ============================================================================
 export const contactData = {
-  heading: "Have An Awesome Project Idea? Let's Discuss",
-  placeholder: "Enter your email",
-  buttonText: "Submit",
+  heading: "Any questions?",
+  ctaLabel: "Contact Us",
+  ctaBarLabel: "Ask us anything",
+  tagline: "Creative graphic designer specializing in photography, 3D, VFX, and digital design.",
   email: "anuragpandeydz@gmail.com",
-  phone: "+91 9555177274",
   address: "Delhi, India",
  social: [
   { name: "Instagram", url: "https://www.instagram.com/anuragpanddey", icon: "FaInstagram" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/anurag-pandey-a713493b4?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", icon: "FaLinkedin" },
-    { name: "GitHub", url: "https://github.com/anuragpanddey", icon: "FaGithubAlt" },
     { name: "ArtStation", url: "https://www.artstation.com/", icon: "FaArtstation" },
     { name: "Behance", url: "https://www.behance.net/anuragpandey97", icon: "FaBehance" },
-    { name: "Blog", url: "https://anuragdz.blogspot.com/", icon: "FaBloggerB" },
     { name: "Twitter", url: "https://x.com/anuragpandeydz", icon: "FaXTwitter" },
-    { name: "Email", url: "mailto:anuragpandeydz@gmail.com", icon: "FaEnvelope" },
 ],
 };
 
 export const footerLinks = {
   resources: [
      { label: "Home", href: "#home" },
-     { label: "Skills", href: "#skills" },
     { label: "Portfolio", href: "#portfolio" },
-    { label: "Blog", href: "#blog" },
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
   ],
   support: [
     { label: "Contact", href: "#contact" },

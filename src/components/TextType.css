@@ -1,0 +1,17 @@
+/* Block-level (not the stock inline-block) since every usage in this
+   project is a heading or paragraph — keeps existing text-align/centering
+   and box layout identical to the plain element it replaces. */
+.text-type {
+  display: block;
+  white-space: pre-wrap;
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}

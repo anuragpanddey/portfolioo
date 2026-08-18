@@ -28,6 +28,11 @@
   z-index: 2;
 }
 
+/* Match the Software section's heading size */
+.experience .section-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
 .exp-item {
   transition: transform 0.3s;
 }

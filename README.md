@@ -27,7 +27,7 @@ src/
 │   ├── Certifications.jsx
 │   ├── Education.jsx
 │   ├── Experience.jsx
-│   ├── Gallery.jsx  # Masonry grid, filterable
+│   ├── Gallery.jsx  # Drift wall, filterable
 │   ├── Blog.jsx
 │   └── Contact.jsx
 public/
@@ -92,7 +92,7 @@ const iconMap = { ...existing, SiNewicon };
 
 Available: BiLogoAdobe, FaFigma, SiBlender, SiUnrealengine, SiAutodesk, SiMax, etc.
 
-### 7. Gallery (Masonry Portfolio)
+### 7. Gallery (Drift Wall Portfolio)
 
 - **Images:** Edit `galleryData`. Each item: `{ id, image, title, category }`
 - **Categories:** Must match `galleryFilters` (all, photography, videography, 3d, vfx, ui, graphics, game, advertisement, environment)
@@ -142,5 +142,4 @@ Output in `dist/`. Deploy to Vercel, Netlify, or any static host.
 ## Tech Stack
 
 - React 19 + Vite
-- react-masonry-css (gallery)
 - react-icons (software & social icons)

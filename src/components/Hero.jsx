@@ -38,7 +38,7 @@ export default function Hero() {
         ) : (
           <div
             className="hero-fallback"
-            style={{ backgroundImage: `url(${fallbackImage})` }}
+            style={fallbackImage ? { backgroundImage: `url(${fallbackImage})` } : undefined}
           />
         )}
       </div>

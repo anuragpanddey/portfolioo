@@ -1,6 +1,9 @@
 /* About - Two-column layout with fixed profile image and background */
 .about {
+  min-height: 100vh;
   padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
   background: #0a0a0a;
   --about-bg-image: none;
   text-align: left;
@@ -9,16 +12,32 @@
   overflow: hidden;
 }
 
-/* Background image layer */
+.about > .animate-section {
+  width: 100%;
+}
+
+/* Background image layer — anchored to the right edge of the section. Left
+   side dissolves into the dark section background via the gradient overlay
+   (a soft "blur kind of" bleed) while the right side reads clearly; the
+   overlay stays dark enough throughout that text legibility never suffers.
+   (Deliberately no CSS filter:blur() here — combined with the mask and the
+   z-index-stacked .about-container sibling it triggered a real Chromium
+   compositing bug that made the heading/image/stats vanish entirely.) */
 .about::before {
   content: "";
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(10, 10, 10, 0.72), rgba(10, 10, 10, 0.72)),
+    linear-gradient(
+      to right,
+      rgba(10, 10, 10, 0.97) 0%,
+      rgba(10, 10, 10, 0.93) 35%,
+      rgba(10, 10, 10, 0.8) 55%,
+      rgba(10, 10, 10, 0.6) 100%
+    ),
     var(--about-bg-image, none);
   background-size: cover;
-  background-position: center center;
+  background-position: right center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   z-index: 0;
@@ -29,7 +48,7 @@
   max-width: 1050px;
   margin: 0 auto;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 3.5rem;
   position: relative;
   z-index: 2;
@@ -68,8 +87,8 @@
 
 .about-image-anim {
   position: relative;
-  width: clamp(220px, 28vw, 320px);
-  height: clamp(220px, 28vw, 320px);
+  width: clamp(280px, 34vw, 420px);
+  height: clamp(280px, 34vw, 420px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,11 +106,11 @@
 
 /* Responsive, distortion-free circular profile photo */
 .about-image {
-  width: clamp(170px, 22vw, 260px);
-  height: clamp(170px, 22vw, 260px);
+  width: clamp(220px, 27vw, 340px);
+  height: clamp(220px, 27vw, 340px);
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
   border-radius: 50%;
   border: 3px solid #1e1e1e;
   box-shadow: 0 0 0 4px rgba(184, 190, 199, 0.25);
@@ -135,6 +154,7 @@
   line-height: 1.75;
   margin-bottom: 1.75rem;
   text-align: left;
+  white-space: pre-line;
 }
 
 /* ── CTA button ──────────────────────────────────────────── */
@@ -154,6 +174,91 @@
 .about-cta:hover {
   background: var(--accent-strong);
   color: #0a0a0a;
+}
+
+/* ── Education (inside About, underneath the bio text) ──────────── */
+.about-education {
+  margin-top: 2.5rem;
+}
+
+.about-education-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.1rem;
+}
+
+.about-education-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  /* Cards are shorter now, so widen the row to keep them comfortable —
+     pulls the left edge out past the paragraph's column on desktop only. */
+  margin-left: -3rem;
+}
+
+.edu-card {
+  padding: 0.85rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(184, 190, 199, 0.35);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(184, 190, 199, 0.08),
+    0 0 24px rgba(184, 190, 199, 0.12);
+}
+
+.edu-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.edu-card-year {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent-strong);
+}
+
+.edu-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.edu-card-degree {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.15rem;
+  line-height: 1.3;
+}
+
+.edu-card-school {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
@@ -194,6 +299,11 @@
   .about-text {
     text-align: left;
   }
+
+  .about-education-grid {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -207,5 +317,9 @@
 
   .about-stat-value {
     font-size: 1.6rem;
+  }
+
+  .edu-card {
+    padding: 1.25rem;
   }
 }

@@ -1,31 +1,30 @@
 import { useState, useEffect, useCallback } from "react";
-import { useAsset } from "../context/assetsContextStore";
 import "./Navbar.css";
 
 const LEFT_LINKS = [
   { label: "Home",      href: "#home" },
   { label: "About",     href: "#about" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Skills",    href: "#skills" },
-  { label: "Software", href: "#software" },
 ];
 
 const RIGHT_LINKS = [
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Blog",    href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Software",    href: "#software" },
+  { label: "Experience",  href: "#experience" },
+  { label: "Blog",        href: "#blog" },
 ];
 
 const ALL_LINKS = [...LEFT_LINKS, ...RIGHT_LINKS];
 
 export default function Navbar({
   logo     = "AP",
-  ctaLabel = "Hire Me",
+  ctaLabel = "Contact Me",
   ctaHref  = "#contact",
 }) {
-  const logoIcon = useAsset("logo_icon", "");
   const [scrolled,       setScrolled] = useState(false);
   const [menuOpen,       setMenuOpen] = useState(false);
   const [activeSection,  setActive]   = useState("home");
+  const [onHome,         setOnHome]   = useState(true);
 
   /* ── Smooth scroll helper ─────────────────────────────────────── */
   const scrollTo = useCallback((href, e) => {
@@ -44,9 +43,20 @@ export default function Navbar({
     setMenuOpen(false);
   }, []);
 
-  /* ── Scroll-position effects (scrolled flag) ──────────────────── */
+  /* ── Scroll-position effects (scrolled flag + Home visibility) ─── */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const home = document.getElementById("home");
+    // Hero's own natural height, captured once. Home is part of the sticky
+    // stacking group (Home → About → Portfolio share one containing block),
+    // which stretches how long Home's own `getBoundingClientRect()` reads as
+    // "still on screen" well past when About has actually covered it — so
+    // visibility is driven directly by scroll position against Hero's real
+    // height instead, matching when About actually takes over the view.
+    const homeHeight = home ? home.offsetHeight : 0;
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      setOnHome(home ? window.scrollY < homeHeight : window.scrollY < 40);
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll(); // run once on mount
     return () => window.removeEventListener("scroll", onScroll);
@@ -129,6 +139,7 @@ export default function Navbar({
         "navbar",
         scrolled ? "scrolled" : "",
         menuOpen ? "open"     : "",
+        onHome   ? ""         : "navbar-hidden",
       ]
         .filter(Boolean)
         .join(" ")}
@@ -145,7 +156,7 @@ export default function Navbar({
         {/* CENTER LOGO */}
         <div className="navbar-logo">
           <a href="#home" onClick={(e) => scrollTo("#home", e)}>
-            {logoIcon ? <img src={logoIcon} alt={logo} className="navbar-logo-icon" /> : logo}
+            {logo}
           </a>
         </div>
 

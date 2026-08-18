@@ -1,6 +1,7 @@
 import { softwareData } from "../data";
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
+import TextType from "./TextType";
 import "./Software.css";
 
 export default function Software() {
@@ -9,7 +10,7 @@ export default function Software() {
   return (
     <section id="software" className="software">
       <AnimatedSection variant="fadeUp">
-        <h2 className="section-heading software-heading">SOFTWARE</h2>
+        <TextType as="h2" className="section-heading software-heading" text="SOFTWARE" startOnVisible loop={false} />
       </AnimatedSection>
       <AnimatedSection variant="scale" delay={100}>
         <div className="software-grid">

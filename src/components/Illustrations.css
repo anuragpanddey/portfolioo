@@ -60,16 +60,17 @@
 }
 
 .illus-about-ring {
-  width: 340px;
-  height: 340px;
+  width: 106%;
+  height: 106%;
   color: var(--accent);
   animation: ring-pulse 4s ease-in-out infinite;
 }
 
 .illus-about-dots {
   position: absolute;
-  width: 320px;
-  height: 320px;
+  width: 100%;
+  height: 100%;
+  --dot-radius: 184px;
 }
 
 .illus-about-dots .dot {
@@ -83,7 +84,7 @@
   left: 50%;
   animation: dot-orbit 8s linear infinite;
   --angle: calc(var(--i) * 45deg);
-  transform: rotate(var(--angle)) translateX(140px) rotate(calc(-1 * var(--angle)));
+  transform: rotate(var(--angle)) translateX(var(--dot-radius)) rotate(calc(-1 * var(--angle)));
 }
 
 @keyframes ring-pulse {
@@ -92,7 +93,15 @@
 }
 
 @keyframes dot-orbit {
-  to { transform: rotate(calc(360deg + var(--angle))) translateX(140px) rotate(calc(-360deg - var(--angle))); }
+  to { transform: rotate(calc(360deg + var(--angle))) translateX(var(--dot-radius)) rotate(calc(-360deg - var(--angle))); }
+}
+
+/* Mobile: .about-image-anim shrinks back to its original range there, so
+   keep the orbit radius matched instead of inheriting the desktop value. */
+@media (max-width: 900px) {
+  .illus-about-dots {
+    --dot-radius: 140px;
+  }
 }
 
 /* Section divider */

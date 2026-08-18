@@ -1,7 +1,7 @@
 /* Blog - 3-col cards */
 .blog {
   padding: 5rem 2rem;
-  background: #121212;
+  background: #000;
   position: relative;
 }
 
@@ -12,6 +12,11 @@
   margin-bottom: 2rem;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+/* Match the Software section's heading size */
+.blog .section-heading {
+  font-size: clamp(2rem, 4vw, 3rem);
 }
 
 .blog-view-all {

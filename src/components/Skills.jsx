@@ -7,6 +7,7 @@ import { skillsData } from "../data";
 import { useAsset } from "../context/assetsContextStore";
 import AnimatedSection from "./AnimatedSection";
 import { GridPattern } from "./Illustrations";
+import TextType from "./TextType";
 import "./Skills.css";
 
 export default function Skills() {
@@ -33,7 +34,7 @@ export default function Skills() {
       <GridPattern />
       <div className="skills-content">
         <AnimatedSection variant="fadeUp">
-          <h2 className="section-heading">My Skills</h2>
+          <TextType as="h2" className="section-heading" text="My Skills" startOnVisible loop={false} />
         </AnimatedSection>
         <div className="skills-grid">
           {skillsData.map((skill, i) => (

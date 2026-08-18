@@ -8,6 +8,7 @@ import { blogData } from "../data";
 import { useAssets } from "../context/assetsContextStore";
 import AnimatedSection from "./AnimatedSection";
 import { CornerAccent } from "./Illustrations";
+import TextType from "./TextType";
 import "./Blog.css";
 
 export default function Blog() {
@@ -23,13 +24,14 @@ export default function Blog() {
       <CornerAccent position="top-left" />
       <AnimatedSection variant="fadeUp">
         <div className="blog-header">
-          <h2 className="section-heading">From My Blog</h2>
+          <TextType as="h2" className="section-heading" text="From My Blog" startOnVisible loop={false} />
           <a href="#blog" className="blog-view-all">View All</a>
         </div>
       </AnimatedSection>
       <div className="blog-grid">
         {blogData.map((post, i) => {
           const image = assets[`blog_${post.id}`]?.url || post.image;
+          const isVideo = /\.(mp4|webm|mov)$/i.test(image || "");
           return (
           <AnimatedSection key={post.id} variant="fadeUp" delay={i * 80}>
             <article
@@ -46,12 +48,24 @@ export default function Blog() {
             >
               <div className="blog-image-wrap">
                 {image && (
-                  <img
-                    src={image}
-                    alt={post.title}
-                    className="blog-image"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
+                  isVideo ? (
+                    <video
+                      src={image}
+                      className="blog-image"
+                      muted
+                      autoPlay
+                      loop
+                      playsInline
+                      onError={(e) => { e.currentTarget.style.display = "none"; }}
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt={post.title}
+                      className="blog-image"
+                      onError={(e) => { e.currentTarget.style.display = "none"; }}
+                    />
+                  )
                 )}
                 <span className="blog-category">{post.category}</span>
               </div>

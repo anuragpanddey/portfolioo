@@ -3,21 +3,22 @@
  * All sections are composed here. Edit order by rearranging components.
  * Content is data-driven via src/data.js
  */
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { siteConfig } from "./data";
 import { AssetsProvider } from "./context/AssetsContext";
+import IntroOverlay from "./components/IntroOverlay";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Software from "./components/Software";
 import Certifications from "./components/Certifications";
-import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Gallery from "./components/Gallery";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import "./styles/loading.css";
+import "./styles/sectionStack.css";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,35 +34,27 @@ function App() {
     };
   }, [isLoading]);
 
-  useEffect(() => {
-    const loaderDelay = window.setTimeout(() => {
-      setIsLoading(false);
-    }, 1800);
-
-    return () => window.clearTimeout(loaderDelay);
+  const handleIntroComplete = useCallback(() => {
+    setIsLoading(false);
   }, []);
 
   return (
     <AssetsProvider>
-      <div className={`ap-loader ${isLoading ? "is-active" : "is-hidden"}`}>
-        <div className="ap-loader__shield">
-          <div className="ap-loader__logo">AP</div>
-        </div>
-        <p className="ap-loader__tagline">Crafted with performance</p>
-      </div>
+      {isLoading && <IntroOverlay onComplete={handleIntroComplete} />}
 
-      <div className={`ap-site-shell ${isLoading ? "is-loading" : "is-ready"}`}>
+      <div className="ap-site-shell">
         <Navbar />
         <main>
-          <Hero />
-          <About />
+          <div className="stack-group">
+            <div className="stack-panel"><Hero /></div>
+            <div className="stack-panel"><About /></div>
+            <div className="stack-panel"><Gallery /></div>
+          </div>
           <Skills />
           <Software />
           <Experience />
-          <Gallery />
-          <Blog />
           <Certifications />
-          <Education />
+          <Blog />
           <Contact />
         </main>
       </div>
