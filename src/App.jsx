@@ -48,8 +48,8 @@ function App() {
           <div className="stack-group">
             <div className="stack-panel"><Hero /></div>
             <div className="stack-panel"><About /></div>
-            <div className="stack-panel"><Gallery /></div>
           </div>
+          <Gallery />
           <Skills />
           <Software />
           <Experience />

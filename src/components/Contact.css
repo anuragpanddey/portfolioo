@@ -1,11 +1,12 @@
 /* ============================================================
-   Contact + Footer — Black / White / Red-Orange theme
+   Contact + Footer — Black / White / Grey (#a0a2a1) theme
    Scoped accent colors (does not touch the site-wide --accent).
    ============================================================ */
 
 .contact {
-  --contact-orange: #ff5a2e;
-  --contact-orange-strong: #ff7a4d;
+  --contact-orange: #a0a2a1;
+  --contact-orange-strong: #ffffff;
+  --contact-on-orange: #0a0a0a;
   background: #000;
   padding: 5rem 2rem;
   position: relative;
@@ -32,7 +33,7 @@
   transform: translateX(-50%);
   width: 60%;
   height: 260px;
-  background: radial-gradient(ellipse, rgba(255, 90, 46, 0.16) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(250, 249, 246, 0.10) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -116,7 +117,7 @@
   padding: 1.15rem 1.75rem;
   font-size: clamp(1rem, 2.4vw, 1.2rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--contact-on-orange);
   transition: background 0.25s ease;
 }
 
@@ -129,7 +130,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--contact-on-orange);
   transition: background 0.25s ease, transform 0.25s ease;
 }
 
@@ -239,7 +240,7 @@
   justify-content: center;
   width: 46px;
   background: var(--contact-orange);
-  color: #fff;
+  color: var(--contact-on-orange);
   transition: background 0.2s ease;
 }
 
